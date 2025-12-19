@@ -12,17 +12,36 @@ import Department from "./Department";
 export default function App() {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/college" element={<College />}>
-          <Route path="student" element={<Student />} />
-          <Route path="department" element={<Department />} />
-          <Route path="details" element={<Details />} />
+        <Route element={<NavBar />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+
+          <Route path="/college" element={<College />}>
+            <Route index element={<Student />} />
+            {/* <Routeyou can use department like this duo and removing /> from department inside college jsx file */}
+            <Route path="details" element={<Details />} />
+          </Route>
+
+          <Route path="/department" element={<Department />} />
         </Route>
+
+        {/* <Route path="/college" element={<College />}>
+          <Route index element={<Student />} />
+          <Route path="details" element={<Details />} />
+        </Route> */}
+
+
+
+        {/* <Route path="/college/department" element={<Department />} />   */}
+        {/* remove / from department from college.jsx for above one */}
+
+        {/* <Route path="/department" element={<Department />} /> */}
+
+
 
         <Route path="*" element={<PageNotFound />} />
         {/* show 404 page  */}

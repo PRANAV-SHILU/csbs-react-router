@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router";
+import { NavLink, Outlet, Link } from "react-router";
 import "./College.css";
 
 const activeStyle = ({ isActive }) => {
@@ -15,11 +15,14 @@ export default function College() {
     <>
       <section className="nestedNav">
         <h1>College details</h1>
+        <h2>
+          <Link to="/">Go back to home</Link>
+        </h2>
         <nav>
-          <NavLink style={activeStyle} to="student">
+          <NavLink style={activeStyle} to=''>
             Student
           </NavLink>
-          <NavLink style={activeStyle} to="department">
+          <NavLink style={activeStyle} to="/department">
             Departments
           </NavLink>
           <NavLink style={activeStyle} to="details">

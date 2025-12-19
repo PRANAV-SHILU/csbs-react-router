@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { NavLink, Outlet } from "react-router";
 import "./NavBar.css";
 
 const activeStyle = ({ isActive }) => {
@@ -38,7 +38,7 @@ export default function NavBar() {
                   Login
                 </NavLink>
               </li>
-               <li>
+              <li>
                 <NavLink style={activeStyle} to="/college">
                   College
                 </NavLink>
@@ -47,6 +47,8 @@ export default function NavBar() {
           </div>
         </nav>
       </header>
+
+      <Outlet />
     </>
   );
 }
