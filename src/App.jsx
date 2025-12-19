@@ -1,25 +1,35 @@
-import { Outlet, NavLink } from "react-router";
+import { Outlet, NavLink, Routes, Route, Navigate } from "react-router";
+import Home from "./Home";
+import About from "./About";
+import Login from "./Login";
+import NavBar from "./NavBar";
+import PageNotFound from "./PageNotFound";
+import College from "./College";
+import Student from "./Student";
+import Details from "./Details";
+import Department from "./Department";
 
-const activeStyle = ({ isActive }) => {
-  return {
-    fontWeight: isActive ? "bold" : "normal",
-    color: isActive ? "blue" : "black",
-    textDecoration: "none",
-    fontSize: "20px",
-  };
-};
 export default function App() {
   return (
-    <section>
-      <header>
-        <nav>
-          <NavLink style={activeStyle} to="/">Home</NavLink> | {"  "}
-          <NavLink style={activeStyle} to="/about">About</NavLink>
-        </nav>
-      </header>
-      <hr />
+    <>
+      <NavBar />
 
-      <Outlet />
-    </section>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/college" element={<College />}>
+          <Route path="student" element={<Student />} />
+          <Route path="department" element={<Department />} />
+          <Route path="details" element={<Details />} />
+        </Route>
+
+        <Route path="*" element={<PageNotFound />} />
+        {/* show 404 page  */}
+
+        {/* <Route path="/*" element={<Navigate to="/login" />} /> */}
+        {/* direct redirect to appropriate page  */}
+      </Routes>
+    </>
   );
 }
