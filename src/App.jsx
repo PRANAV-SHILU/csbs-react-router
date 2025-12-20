@@ -1,13 +1,16 @@
-import { Outlet, NavLink, Routes, Route, Navigate } from "react-router";
+import { Outlet, Routes, Route, Navigate } from "react-router";
 import Home from "./Home";
 import About from "./About";
 import Login from "./Login";
+import Register from "./Register";
 import NavBar from "./NavBar";
 import PageNotFound from "./PageNotFound";
 import College from "./College";
 import Student from "./Student";
 import Details from "./Details";
 import Department from "./Department";
+import Users from "./Users";
+import UserDetails from "./UserDetails";
 
 export default function App() {
   return (
@@ -17,8 +20,18 @@ export default function App() {
       <Routes>
         <Route element={<NavBar />}>
           <Route path="/" element={<Home />} />
+          <Route path="/users/list?" element={<Users/>}/> {/*Dynamic routing and optional segment */}
+          <Route path="/users/:id/:name?" element={<UserDetails/>} />{/*Dynamic routing and optional segment */}
           <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
+
+
+
+          <Route path="user">
+            {" "}
+            {/*prefix*/}
+            <Route path="/user/login" element={<Login />} />
+            <Route path="/user/register" element={<Register />} />
+          </Route>
 
           <Route path="/college" element={<College />}>
             <Route index element={<Student />} />
@@ -34,20 +47,13 @@ export default function App() {
           <Route path="details" element={<Details />} />
         </Route> */}
 
-
-
         {/* <Route path="/college/department" element={<Department />} />   */}
         {/* remove / from department from college.jsx for above one */}
 
         {/* <Route path="/department" element={<Department />} /> */}
 
-
-
         <Route path="*" element={<PageNotFound />} />
-        {/* show 404 page  */}
-
         {/* <Route path="/*" element={<Navigate to="/login" />} /> */}
-        {/* direct redirect to appropriate page  */}
       </Routes>
     </>
   );

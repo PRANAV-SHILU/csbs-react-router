@@ -9,7 +9,7 @@ const activeStyle = ({ isActive }) => {
     textDecoration: "none",
   };
 };
-
+// NavBar also gives active class you can directly give to  css file using .active see college.jsx and css
 export default function NavBar() {
   return (
     <>
@@ -34,13 +34,23 @@ export default function NavBar() {
                 </NavLink>
               </li>
               <li>
-                <NavLink style={activeStyle} to="/login">
+                <NavLink style={activeStyle} to="/user/login">
                   Login
                 </NavLink>
               </li>
               <li>
                 <NavLink style={activeStyle} to="/college">
                   College
+                </NavLink>
+              </li>
+              <li>
+                <NavLink style={activeStyle} to="/users">
+                  Users
+                </NavLink>
+              </li>
+              <li>
+                <NavLink style={activeStyle} to="/users/list">
+                  List
                 </NavLink>
               </li>
             </ul>
