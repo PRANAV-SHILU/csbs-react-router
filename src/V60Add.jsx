@@ -4,16 +4,19 @@ export default function V60Add() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
-  let id = 6;
 
   async function handleSubmit() {
+    let response = await fetch("http://localhost:3000/users");
+    response = await response.json();
+    let id = response.length;
+
     console.log(id + 1, name, age, email);
 
     let url = "http://localhost:3000/users";
-    let response = await fetch(url, {
+    response = await fetch(url, {
       method: "Post",
       body: JSON.stringify({
-        // id: ++id,
+        id: ++id,
         name: name,
         age: age,
         email: email,
