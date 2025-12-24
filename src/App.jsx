@@ -1,4 +1,4 @@
-import { Outlet, Routes, Route, Navigate } from "react-router";
+import {Routes, Route, Navigate } from "react-router";
 import Home from "./Home";
 import About from "./About";
 import Login from "./Login";
@@ -11,6 +11,8 @@ import Details from "./Details";
 import Department from "./Department";
 import Users from "./Users";
 import UserDetails from "./UserDetails";
+import V59 from "./V59";
+import V60Add from "./V60Add";
 
 export default function App() {
   return (
@@ -23,7 +25,8 @@ export default function App() {
           <Route path="/users/list?" element={<Users/>}/> {/*Dynamic routing and optional segment */}
           <Route path="/users/:id/:name?" element={<UserDetails/>} />{/*Dynamic routing and optional segment */}
           <Route path="/about" element={<About />} />
-
+          <Route path="/v59home" element={<V59/>} />
+          <Route path="/v60add" element={<V60Add/>} />
 
 
           <Route path="user">

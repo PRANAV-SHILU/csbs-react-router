@@ -53,6 +53,16 @@ export default function NavBar() {
                   List
                 </NavLink>
               </li>
+              <li>
+                <NavLink style={activeStyle} to="/v59home">
+                  V59-Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink style={activeStyle} to="/v60add">
+                  V60-Add
+                </NavLink>
+              </li>
             </ul>
           </div>
         </nav>
