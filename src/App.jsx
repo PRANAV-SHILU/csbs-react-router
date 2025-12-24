@@ -13,6 +13,7 @@ import Users from "./Users";
 import UserDetails from "./UserDetails";
 import V59 from "./V59";
 import V60Add from "./V60Add";
+import V62Edit from "./V62Edit";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/v59home" element={<V59/>} />
           <Route path="/v60add" element={<V60Add/>} />
+          <Route path="/v62edit/:userID" element={<V62Edit/>} />
 
 
           <Route path="user">
