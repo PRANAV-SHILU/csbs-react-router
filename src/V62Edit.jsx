@@ -28,7 +28,7 @@ export default function V62Edit() {
     // };
     await fetch(url, {
       method: "PATCH",
-      body: JSON.stringify({name,age,email}),
+      body: JSON.stringify({ name, age, email }),
     });
     navigate("/v59home");
   }

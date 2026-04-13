@@ -18,18 +18,21 @@ export default function V59() {
     getUsersData();
   }, []);
 
-  async function  handleDelete(id){
-    await fetch(url+"/"+id,{method:'delete'});
+  async function handleDelete(id) {
+    await fetch(url + "/" + id, { method: "delete" });
     getUsersData();
   }
 
   function handleEdit(id) {
-      navigate("/v62edit/"+id)
+    navigate("/v62edit/" + id);
   }
 
   return (
     <section>
-      <h2>V59 - Routes and pages for user list and Add user  <br /> V61 - delete <br /> V62+V63 - edit</h2>
+      <h2>
+        V59 - Routes and pages for user list and Add user <br /> V61 - delete{" "}
+        <br /> V62+V63 - edit
+      </h2>
       <table cellSpacing="25px">
         <thead>
           <tr>
@@ -48,9 +51,11 @@ export default function V59() {
                 <td>{user.age}</td>
                 <td>{user.email}</td>
                 <td>
-                  <button onClick={()=>handleDelete(user.id)}>Delete</button>
+                  <button onClick={() => handleDelete(user.id)}>Delete</button>
                 </td>
-                <td><button onClick={()=>handleEdit(user.id)}>Edit</button></td>
+                <td>
+                  <button onClick={() => handleEdit(user.id)}>Edit</button>
+                </td>
               </tr>
             ))
           ) : (
